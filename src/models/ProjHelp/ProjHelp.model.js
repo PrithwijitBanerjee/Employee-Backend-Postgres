@@ -11,11 +11,10 @@ const ProjHelpModel = sequelize.define('ProjHelp', {
     data: {
         type: DataTypes.STRING(50),
         allowNull: false,
-        
     },
     tag: {
         type: DataTypes.CHAR(2),
-        allowNull: false
+        allowNull: false,
     }
 }, {
     tableName: 'projhelp', // we are explicitly tell sequelize the table name ....

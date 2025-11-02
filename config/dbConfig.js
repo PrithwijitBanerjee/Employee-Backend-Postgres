@@ -25,11 +25,13 @@ const createDatabaseIfNotExists = async () => {
             console.log(`✅ Database '${config.db.dbName}' already exists.`);
         }
         
-        await initialSequelize.close();
+        // await initialSequelize.close();
     } catch (error) {
         console.error('Error checking/creating database:', error);
-        await initialSequelize.close();
+        // await initialSequelize.close();
         throw error;
+    } finally {
+        await initialSequelize.close();
     }
 };
 
@@ -37,7 +39,7 @@ const createDatabaseIfNotExists = async () => {
 export const sequelize = new Sequelize(config.db.dbName, config.db.dbUserName, config.db.dbPass, {
     host: config.db.dbHost,
     dialect: 'postgres',
-    logging: false,
+    logging: true,
 });
 
 const connectDb = async () => {

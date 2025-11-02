@@ -24,7 +24,7 @@ export const fetchEntireDepartments = async () => {
             include: {
                 model: ProjHelpModel,
                 as: "status",
-                attributes: ["code", "data"],
+                attributes: ["data"],
             },
             order: [['createdAt', 'DESC']] // Optional: chronological order
         });
@@ -43,7 +43,7 @@ export const fetchActiveDepartments = async () => {
             include: {
                 model: ProjHelpModel,
                 as: "status",
-                attributes: ["code", "data"],
+                attributes: ["data"],
             },
             order: [['createdAt', 'DESC']] // Optional: chronological order
         });
